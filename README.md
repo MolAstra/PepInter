@@ -39,5 +39,11 @@ pepinter predict --input_path input.csv \
 - the training framework is depend on the project named `astra` which will be released in comming months
   The training framework is built upon an internal project named Astra,
   which will be released in the coming months. [astra-open](https://github.com/zhaisilong/astra-open.git)
+- More details will be provided soon.
+- If you have any question please email to `zhaisilong@outlook.com`
 
-More details will be provided soon.
+## Citaion
+
+```
+
+```
