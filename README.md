@@ -1,8 +1,8 @@
 # PepInter
 
-This is the official implementation for the paper titled 'XXX'.
+This is the official implementation for the paper titled 'PepInter: Protein-peptide Interaction Representation Learning with Pretrained Protein Language Models'.
 
-![](./assets/f1.png)
+![](./assets/Framework.png)
 
 ## Setups
 
@@ -22,8 +22,8 @@ pip install -e ".[serve]"  # [Optinal] for sever deployment
 ## Datasets and Model Checkpoints
 
 - The prediction code is tested on GPU A800 with `python==3.12` and `torch==2.7.1+cu126`.
-- The raw PepPBA dataset can be found at `datasets` dir.
-- The trained model ckpt can be found at [zenodo](https://zenodo.org/records/XXXX)
+- The raw PepPBA dataset can be found at `dataset` dir.
+- The trained model ckpt can be found at [zenodo](https://zenodo.org/records/18604811)
 
 ```bash
 # affinity, cls
