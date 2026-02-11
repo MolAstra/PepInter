@@ -1,4 +1,4 @@
-from astra.models.esmc.configuration_esmc import ESMCConfig
+from pepinter.esmc import ESMCConfig
 
 
 class PepInterConfig(ESMCConfig):

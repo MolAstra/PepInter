@@ -9,9 +9,9 @@ from loguru import logger
 from torchmetrics import MeanMetric, Accuracy, AUROC, R2Score, MeanAbsoluteError
 from transformers import DataCollatorForLanguageModeling, DataCollatorWithPadding
 
-from astra.tokenizers.esm import ESMSeqTokenizer
-from astra.data.csv import CSVDataset
-from astra.models.pepinter import (
+from .pepinter import ESMSeqTokenizer
+from .data.csv import CSVDataset
+from .pepinter import (
     PepInterConfig,
     PepInterModel,
     PepInterModelForClassification,
@@ -19,7 +19,7 @@ from astra.models.pepinter import (
     PepInterModelForEnergy,
     PepInterModelForAffinity,
 )
-from astra.models.esmc.modeling_esmc import load_weights_from_esm, ESMCOutput
+from .esmc.modeling_esmc import load_weights_from_esm, ESMCOutput
 
 from .base import BaseLightningModule, MetricCollection
 

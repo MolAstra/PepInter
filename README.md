@@ -10,10 +10,13 @@ This is the official implementation for the paper titled 'XXX'.
 git clone https://github.com/MolAstra/PepInter.git
 cd PepInter
 
-conda create -n pepinter python=3.12 -y
-conda activate pepinter
+mamba create -n pepinter python=3.12 -y
+mamba activate pepinter
+
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu126
 
 pip install -e .
+pip install -e ".[serve]"  # [Optinal] for sever deployment
 ```
 
 ## Datasets and Model Checkpoints
@@ -23,11 +26,14 @@ pip install -e .
 - The trained model ckpt can be found at [zenodo](https://zenodo.org/records/XXXX)
 
 ```bash
-pepinter predict --input_path input.csv \
-    --output_path output.csv \
-    --model_path pepinter_step=882-val_loss=0.51.ckpt \
+# affinity, cls
+pepinter predict \
+    --input_path example_input.csv \
+    --output_path ./pred_cls.csv \
+    --task "cls" \
+    --model_path ./ckpt/pepinter_cls_step741516.ckpt \
     --seed 42 \
-    --device cuda:0
+    --gpus 2
 ```
 
 ## Webserver
@@ -44,6 +50,6 @@ pepinter predict --input_path input.csv \
 
 ## Citaion
 
-```
+```bash
 
 ```

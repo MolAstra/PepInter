@@ -12,11 +12,13 @@ define_import_structure = {
         "PepInterModelForClassification",
         "PepInterModelForAffinity",
     ],
+    "tokenization_pepinter": ["ESMSeqTokenizer"],
 }
 
 if TYPE_CHECKING:
     from .configuration_pepinter import *
     from .modeling_pepinter import *
+    from .tokenization_pepinter import *
 else:
     import sys
 

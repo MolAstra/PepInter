@@ -1,0 +1,49 @@
+name: pepinter_affinity
+stage: pred
+log_dir: ./logs/${stage}
+seed: 42
+
+is_resume: false
+resume_model_path: null
+is_check_data_module: false
+exit_after_check: true
+is_pretrained: true
+pretrained_model_path: logs/train/pepinter_cls/20251108/checkpoints/step=2765-val_loss=0.11.ckpt
+
+data_module:
+  data_path: karma/pepinter/input.csv
+  batch_size: 128
+  num_workers: 8
+
+lightning_module:
+  load_from_esmc: false
+  model_args:
+    num_labels: 1
+  learning_rate: 1e-5
+
+trainer:
+  _target_: lightning.Trainer
+  max_epochs: 10
+  log_every_n_steps: 50
+  accelerator: "gpu"
+  devices: [0]
+  strategy: auto
+  precision: bf16-mixed
+  fast_dev_run: false
+  gradient_clip_val: 1.0
+  enable_checkpointing: false
+
+  callbacks:
+    - _target_: lightning.pytorch.callbacks.RichProgressBar
+    - _target_: astra.lightning.pepinter.CSVWriterCallbackForAffinity
+      save_dir: ${log_dir}/${name}/affinity_pred
+      filename: pepinter_affinity_results.csv
+
+  logger:
+    _target_: lightning.pytorch.loggers.CSVLogger
+    save_dir: ${log_dir}
+    name: ${name}
+
+hydra:
+  run:
+    dir: ${log_dir}/${name}

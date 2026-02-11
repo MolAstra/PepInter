@@ -4,7 +4,7 @@ import torch
 import torch.nn.functional as F
 import torch.nn as nn
 
-from astra.models.esmc.modeling_esmc import (
+from pepinter.esmc.modeling_esmc import (
     Pooler,
     ESMCOutput,
     ESMCModel,
@@ -12,10 +12,10 @@ from astra.models.esmc.modeling_esmc import (
     TransformerStack,
     TransformerOutput,
 )
-from astra.models.esmc.configuration_esmc import ESMCConfig
+from pepinter.esmc.configuration_esmc import ESMCConfig
 import math
-from astra.loss import FocalLoss
-from astra.confidence.mdn import MDNHeader, mdn_loss, MDNInferenceMixin
+from pepinter.loss import FocalLoss
+from pepinter.confidence.mdn import MDNHeader, mdn_loss, MDNInferenceMixin
 
 from .configuration_pepinter import PepInterConfig
 
